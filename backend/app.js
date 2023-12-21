@@ -22,6 +22,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(fileUpload());
 
 app.use('/users', indexRouter);
-app.use('/bars', usersRouter);
+app.use('/', usersRouter);
 
 module.exports = app;

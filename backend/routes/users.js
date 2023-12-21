@@ -21,7 +21,7 @@ cloudinary.config({
 
 
 
-router.get('/all', async (req, res) => {
+router.get('/bars/all', async (req, res) => {
   try {
     const bars = await Bar.find();
     res.json(bars);
@@ -31,7 +31,7 @@ router.get('/all', async (req, res) => {
   }
 });
 
-router.get('/blogs', async (req, res) => {
+router.get('/bars/blogs', async (req, res) => {
   try {
     const blogs = await Blog.find();
     res.json(blogs);
@@ -41,7 +41,7 @@ router.get('/blogs', async (req, res) => {
   }
 });
 
-router.get('/events', async (req, res) => {
+router.get('/bars/events', async (req, res) => {
   try {
     const events = await Event.find();
     res.json(events);
@@ -51,7 +51,7 @@ router.get('/events', async (req, res) => {
   }
 });
 
-router.post('/users/signup', async (req, res) => {
+router.post('/bars/users/signup', async (req, res) => {
   try {
     if (!checkBody(req.body, ['username', 'password', 'mail', 'phoneNumber'])) {
       res.json({ result: false, error: 'Missing or empty fields' });
@@ -87,7 +87,7 @@ router.post('/users/signup', async (req, res) => {
   }
 });
 
-router.post('/users/signin', async (req, res) => {
+router.post('/bars/users/signin', async (req, res) => {
   try {
     if (!checkBody(req.body, ['username', 'password'])) {
       res.json({ result: false, error: 'Missing or empty fields' });
@@ -114,7 +114,7 @@ router.post('/users/signin', async (req, res) => {
   }
 });
 
-router.delete('/users/deleteOne', async (req, res) => {
+router.delete('/bars/users/deleteOne', async (req, res) => {
   try {
     if (!checkBody(req.body, ['username'])) {
       res.json({ result: false, error: 'Missing or empty fields' });
@@ -135,7 +135,7 @@ router.delete('/users/deleteOne', async (req, res) => {
 });
 
 
-router.post('/upload', async (req, res) => {
+router.post('/bars/upload', async (req, res) => {
   try {
     if (!req.files || !req.files.photoFromFront) {
       return res.status(400).json({ result: false, error: 'No file uploaded' });
@@ -161,7 +161,7 @@ router.post('/upload', async (req, res) => {
 });
 
 
-router.put('/users/changePassword', async (req, res) => {
+router.put('/bars/users/changePassword', async (req, res) => {
   try {
     if (!checkBody(req.body, ['username', 'password', 'newPassword'])) {
       res.json({ result: false, error: 'informations manquantes' });
